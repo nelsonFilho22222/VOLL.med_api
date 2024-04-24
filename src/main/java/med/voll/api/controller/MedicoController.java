@@ -32,14 +32,21 @@ public class MedicoController {
         //map() --> para mapear a strem de medicos
         //toList() --> para finalmente converter novamente para uma lista, mas agora somente com o DTO --> O Page tambem já retorna uma paginação,
         // assim não precisando mais desse metodo
-        return repository.findAll(paginacao).map(DadosListagemMedico::new);
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
     }
 
     @PutMapping
     @Transactional
     public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados ){
+        //carrega a base de dados pelo ID
         var medico  = repository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id){
+        var medico  = repository.getReferenceById(id);
+        medico.excluir();
     }
 
 }
