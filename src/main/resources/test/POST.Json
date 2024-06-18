@@ -1,0 +1,16 @@
+{
+  "nome" : "Rodrigo Ferreira",
+  "email" : "rodrigo.ferreira@voll.med",
+  "telefone" : "1100001111",
+  "crm" : "123456",
+  "especialidade" : "ORTOPEDIA",
+  "endereco" : {
+    "logradouro" : "rua 1",
+    "bairro" : "bairro",
+    "cep" : "12345678",
+    "uf" : "CE",
+    "cidade" : "Cidade",
+    "numero" : "1",
+    "complemento" : "complemento"
+  }
+}
