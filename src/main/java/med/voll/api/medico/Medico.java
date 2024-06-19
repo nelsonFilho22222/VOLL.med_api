@@ -34,7 +34,7 @@ public class Medico {
 
 
     //esquema de Embaddable Atrribute, para que fique em uma classe separada, mas na mesma tabela no BD
-    @Embedded
+        @Embedded
     private Endereco endereco;
 
     public Medico(DadosCadastroMedico dados) {
