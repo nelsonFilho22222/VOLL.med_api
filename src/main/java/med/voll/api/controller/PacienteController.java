@@ -20,28 +20,30 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequestMapping("paciente")
 public class PacienteController {
 
-@Autowired
-private PacienteRepository pacienteRepository;
+    @Autowired
+    private PacienteRepository repositoryP;
 
     @PostMapping
     @Transactional
     public void cadastrarPacintes(@RequestBody @Valid DadosPacientes pacienteDados) {
         var paciente = new Paciente(pacienteDados);
 
-        pacienteRepository.save(paciente);
+        repositoryP.save(paciente);
 
     }
 
+    @GetMapping
+// @PageableDefault --> usado para limitar os registros quando a API disparar, e ordenar pelo nome.
+    public Page<DadosListagemPaciente> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
+
+
+        return repositoryP.findAll(paginacao).map(DadosListagemPaciente::new);
+    }
+
+
+}
 
 
 
-//    @GetMapping
-//    // @PageableDefault --> usado para limitar os registros quando a API disparar, e ordenar pelo nome.
-//    public Page<DadosListagemPaciente> listarPaciente(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
-//
-//        var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new);
-//        return ResponseEntity.(page);
-//
-//
-//    }
-//}
+
+
