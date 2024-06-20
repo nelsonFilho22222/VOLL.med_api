@@ -19,6 +19,8 @@ public class PacienteController {
 
     @Autowired
     private PacienteRepository repositoryP;
+    @Autowired
+    private PacienteRepository pacienteRepository;
 
     @PostMapping
     @Transactional
@@ -30,25 +32,28 @@ public class PacienteController {
     }
 
     @GetMapping
-// @PageableDefault --> usado para limitar os registros quando a API disparar, e ordenar pelo nome.
-    public Page<DadosListagemPaciente> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
+    public ResponseEntity <Page<DadosListagemPaciente>> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
 
+        var pagina= repositoryP.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new);
 
-        return repositoryP.findAll(paginacao).map(DadosListagemPaciente::new);
+        return ResponseEntity.ok(pagina);
     }
 
     @PutMapping
     @Transactional
-    public void atualizarPaciente(@RequestBody @Valid DadosAtualizacaoPaciente dados ){
-        //carrega a base de dados pelo ID
-        var medico  = repositoryP.getReferenceById(dados.Id());
-        medico.atualizarInformacoes(dados);
+    public ResponseEntity atualizarPaciente(@RequestBody @Valid DadosAtualizacaoPaciente dados ){
+        var paciente  = repositoryP.getReferenceById(dados.Id());
+        paciente.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 
     @DeleteMapping("/{id}")
-    public void excluirPaciente(@PathVariable Long id){
+    public ResponseEntity excluirPaciente(@PathVariable Long id){
         var paciente = repositoryP.getReferenceById(id);
         paciente.excluirPaciente();
+
+        return ResponseEntity.noContent().build();
     }
 
 }

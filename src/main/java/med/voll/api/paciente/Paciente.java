@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import med.voll.api.enderecoMedico.EnderecoMedico;
+import med.voll.api.endereco_Paciente.EnderecoPaciente;
 
 
 @Table(name = "pacientes")
@@ -26,7 +27,7 @@ public class Paciente {
     private boolean ativo;
 
     @Embedded
-    private EnderecoMedico enderecoMedico;
+    private EnderecoPaciente enderecoPaciente;
 
 
     public Paciente(DadosPacientes dadospaciente) {
@@ -35,7 +36,7 @@ public class Paciente {
         this.email = dadospaciente.email();
         this.telefone = dadospaciente.telefone();
         this.cpf = dadospaciente.cpf();
-        this.enderecoMedico = new EnderecoMedico(dadospaciente.endereco());
+        this.enderecoPaciente = new EnderecoPaciente(dadospaciente.endereco());
     }
 
     public void atualizarInformacoes(DadosAtualizacaoPaciente dados) {

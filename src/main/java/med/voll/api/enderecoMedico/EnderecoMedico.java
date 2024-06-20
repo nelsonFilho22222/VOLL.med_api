@@ -27,7 +27,8 @@ public class EnderecoMedico {
 
     }
 
-    public void atualizarInformacoesMedico(DadosEnderecoMedico dados) {
+    public void atualizarInformacoesMedico(DadosEnderecoMedico dados)
+    {
         if(dados.logradouro() != null )
         {
             this.logradouro = dados.logradouro();

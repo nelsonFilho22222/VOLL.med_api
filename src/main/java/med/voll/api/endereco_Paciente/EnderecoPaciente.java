@@ -17,18 +17,18 @@ public class EnderecoPaciente {
     private String cidade;
     private String uf;
 
-    public EnderecoPaciente(DadosEnderecoMedico dados) {
-        this.logradouro = dados.logradouro();
-        this.bairro = dados.bairro();
-        this.cep = dados.cep();
-        this.uf = dados.uf();
-        this.cidade = dados.cidade();
-        this.numero = dados.numero();
-        this.complemento = dados.complemento();
 
+    public EnderecoPaciente(DadosEnderecoMedico enderecoPaciente) {
+        this.logradouro = enderecoPaciente.logradouro();
+        this.bairro = enderecoPaciente.bairro();
+        this.cep = enderecoPaciente.cep();
+        this.uf = enderecoPaciente.uf();
+        this.cidade = enderecoPaciente.cidade();
+        this.numero = enderecoPaciente.numero();
+        this.complemento = enderecoPaciente.complemento();
     }
 
-    public void atualizarInformacoesPaciente(DadosEnderecoMedico dados)
+    public void atualizarInformacoesPaciente(DadosEnderecoPaciente dados)
     {
         if(dados.logradouro() != null )
         {
@@ -59,5 +59,7 @@ public class EnderecoPaciente {
             this.complemento = dados.complemento();
         }
     }
+
+
 }
 
