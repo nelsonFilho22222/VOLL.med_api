@@ -19,15 +19,18 @@ public class PacienteController {
 
     @Autowired
     private PacienteRepository repositoryP;
-    @Autowired
-    private PacienteRepository pacienteRepository;
+
 
     @PostMapping
     @Transactional
-    public void cadastrarPacintes(@RequestBody @Valid DadosPacientes pacienteDados) {
-        var paciente = new Paciente(pacienteDados);
+    public ResponseEntity cadastrarPacintes(@RequestBody @Valid DadosPacientes pacienteDados, UriComponentsBuilder uriBuilder) {
 
+        var paciente = new Paciente(pacienteDados);
         repositoryP.save(paciente);
+
+        var uri = uriBuilder.path("/paciente/{id}").buildAndExpand(paciente.getId()).toUri();
+
+        return ResponseEntity.created((uri)).body(new DadosDetalhamentoPaciente(paciente));
 
     }
 
