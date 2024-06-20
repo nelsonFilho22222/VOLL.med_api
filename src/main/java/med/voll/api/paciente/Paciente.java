@@ -3,8 +3,7 @@ package med.voll.api.paciente;
 import jakarta.persistence.*;
 import lombok.*;
 
-import med.voll.api.endereco.Endereco;
-
+import med.voll.api.enderecoMedico.EnderecoMedico;
 
 
 @Table(name = "pacientes")
@@ -27,7 +26,7 @@ public class Paciente {
     private boolean ativo;
 
     @Embedded
-    private Endereco endereco;
+    private EnderecoMedico enderecoMedico;
 
 
     public Paciente(DadosPacientes dadospaciente) {
@@ -36,9 +35,22 @@ public class Paciente {
         this.email = dadospaciente.email();
         this.telefone = dadospaciente.telefone();
         this.cpf = dadospaciente.cpf();
-        this.endereco = new Endereco(dadospaciente.endereco());
+        this.enderecoMedico = new EnderecoMedico(dadospaciente.endereco());
     }
 
+    public void atualizarInformacoes(DadosAtualizacaoPaciente dados) {
+        if (dados.nome() != null)
+        {
+            this.nome = dados.nome();
+        }
+        if (dados.telefone() != null)
+        {
+            this.telefone = dados.telefone();
+        }
+    }
+    public void excluirPaciente() {
+        this.ativo = false;
+    }
 
 }
 

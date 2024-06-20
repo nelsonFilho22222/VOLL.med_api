@@ -2,7 +2,7 @@ package med.voll.api.medico;
 
 import jakarta.persistence.*;
 import lombok.*;
-import med.voll.api.endereco.Endereco;
+import med.voll.api.enderecoMedico.EnderecoMedico;
 
 
 @Table(name = "medicos")
@@ -35,7 +35,7 @@ public class Medico {
 
     //esquema de Embaddable Atrribute, para que fique em uma classe separada, mas na mesma tabela no BD
         @Embedded
-    private Endereco endereco;
+    private EnderecoMedico enderecoMedico;
 
     public Medico(DadosCadastroMedico dados) {
         this.ativo = true;
@@ -44,7 +44,7 @@ public class Medico {
         this.telefone = dados.telefone();
         this.crm = dados.crm();
         this.especialidade = dados.especialidade();
-        this.endereco = new Endereco(dados.endereco());
+        this.enderecoMedico = new EnderecoMedico(dados.endereco());
     }
 
     public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
@@ -58,7 +58,7 @@ public class Medico {
         }
         if(dados.endereco() != null)
         {
-            this.endereco.atualizarInformacoes(dados.endereco()) ;
+            this.enderecoMedico.atualizarInformacoesMedico(dados.endereco()); ;
         }
     }
 

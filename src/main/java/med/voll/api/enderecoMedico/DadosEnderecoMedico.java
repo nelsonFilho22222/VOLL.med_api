@@ -1,10 +1,10 @@
-package med.voll.api.endereco;
+package med.voll.api.enderecoMedico;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record DadosEndereco(
+public record DadosEnderecoMedico(
 
         @NotNull
         String logradouro,

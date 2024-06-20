@@ -1,8 +1,8 @@
 package med.voll.api.medico;
 
-import med.voll.api.endereco.Endereco;
+import med.voll.api.enderecoMedico.EnderecoMedico;
 
-public record DadosDetalhamentoMedicos(Long id, String nome, String email, String crm, String telefone, Especialidade especialidade, Endereco endereco) {
+public record DadosDetalhamentoMedicos(Long id, String nome, String email, String crm, String telefone, Especialidade especialidade, EnderecoMedico enderecoMedico) {
    public DadosDetalhamentoMedicos (Medico medico){
        this(
                medico.getId(),
@@ -11,7 +11,7 @@ public record DadosDetalhamentoMedicos(Long id, String nome, String email, Strin
                medico.getCrm(),
                medico.getTelefone(),
                medico.getEspecialidade(),
-               medico.getEndereco()
+               medico.getEnderecoMedico()
        );
    }
 
