@@ -20,8 +20,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequestMapping("paciente")
 public class PacienteController {
 
-@Autowired
-private PacienteRepository pacienteRepository;
+    @Autowired
+    private PacienteRepository pacienteRepository;
 
     @PostMapping
     @Transactional
@@ -32,16 +32,4 @@ private PacienteRepository pacienteRepository;
 
     }
 
-
-
-
-//    @GetMapping
-//    // @PageableDefault --> usado para limitar os registros quando a API disparar, e ordenar pelo nome.
-//    public Page<DadosListagemPaciente> listarPaciente(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
-//
-//        var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new);
-//        return ResponseEntity.(page);
-//
-//
-//    }
-//}
+}
