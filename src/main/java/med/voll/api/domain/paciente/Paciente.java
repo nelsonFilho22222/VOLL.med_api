@@ -1,10 +1,9 @@
-package med.voll.api.paciente;
+package med.voll.api.domain.paciente;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import med.voll.api.enderecoMedico.EnderecoMedico;
-import med.voll.api.endereco_Paciente.EnderecoPaciente;
+import med.voll.api.domain.endereco_Paciente.EnderecoPaciente;
 
 
 @Table(name = "pacientes")

@@ -1,6 +1,5 @@
-package med.voll.api.medico;
+package med.voll.api.domain.medico;
 
-import io.micrometer.observation.ObservationFilter;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
