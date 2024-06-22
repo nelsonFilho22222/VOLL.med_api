@@ -27,7 +27,7 @@ public class SecurityConfigurations {
                 .and().build();
     }
 
-    // @Bean serve para exportar uma classe para o Spring, gazendo com que ele consiga carregá-la e realize a injeção de dependências em outras classes.
+
     @Bean
     public AuthenticationManager authenticationManager (AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
