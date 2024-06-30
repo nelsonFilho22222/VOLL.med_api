@@ -1,0 +1,15 @@
+{
+  "nome": "Maria Oliveira",
+  "email": "maria.oliveira@email.com",
+  "telefone": "21987654321",
+  "cpf": "98765432101",
+  "endereco": {
+    "logradouro": "Avenida dos Pássaros",
+    "numero": 456,
+    "complemento": "Casa 789",
+    "bairro": "Jardim das Flores",
+    "cidade": "Rio de Janeiro",
+    "uf": "RJ",
+    "cep": "87654321"
+  }
+}
