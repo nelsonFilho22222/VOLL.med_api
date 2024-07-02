@@ -23,7 +23,6 @@ public record DadosEnderecoMedico(
         String uf,
 
         String numero,
-
         String complemento
 
 )

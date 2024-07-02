@@ -16,9 +16,8 @@ public class ValidadorMedicoComOutraConsulta implements ValidadorAgendamentoDeCo
 
         var medicoPossuiOutraConsultaNoDia = repository.existsByMedicoIdAndDataBetween(dados.idMedico(), dados.data().withHour(6), dados.data().withHour(18));
         if(medicoPossuiOutraConsultaNoDia){
-            throw new ValidacaoException("Pacinte ja tem uma consulta nesse dia");
+            throw new ValidacaoException("Medico ja tem uma consulta nesse dia");
         }
     }
-
-
+    
 }
