@@ -33,5 +33,11 @@ public class Consulta {
 
     private LocalDateTime data;
 
+    private Boolean ativo;
+
+    public void excluir() {
+        this.ativo = false;
+    }
+
 
 }
