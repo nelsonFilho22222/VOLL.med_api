@@ -1,11 +1,10 @@
-package med.voll.api.domain.enderecoMedico;
+package med.voll.api.domain.enderecos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record DadosEnderecoMedico(
-
+public record DadosEndereco(
         @NotNull
         String logradouro,
 
@@ -25,6 +24,5 @@ public record DadosEnderecoMedico(
         String numero,
         String complemento
 
-)
-{
+) {
 }

@@ -2,7 +2,7 @@ package med.voll.api.domain.medico;
 
 import jakarta.persistence.*;
 import lombok.*;
-import med.voll.api.domain.enderecoMedico.EnderecoMedico;
+import med.voll.api.domain.enderecos.enderecoMedico.EnderecoMedico;
 
 
 @Table(name = "medicos")

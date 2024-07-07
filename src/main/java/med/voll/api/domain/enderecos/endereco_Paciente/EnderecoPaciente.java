@@ -1,13 +1,16 @@
-package med.voll.api.domain.enderecoMedico;
+package med.voll.api.domain.enderecos.endereco_Paciente;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Embeddable;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import med.voll.api.domain.enderecos.DadosEndereco;
 
 @Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
-public class EnderecoMedico {
+public class EnderecoPaciente {
     private String logradouro;
     private String bairro;
     private String cep;
@@ -16,18 +19,18 @@ public class EnderecoMedico {
     private String cidade;
     private String uf;
 
-    public EnderecoMedico(DadosEnderecoMedico dados) {
-        this.logradouro = dados.logradouro();
-        this.bairro = dados.bairro();
-        this.cep = dados.cep();
-        this.uf = dados.uf();
-        this.cidade = dados.cidade();
-        this.numero = dados.numero();
-        this.complemento = dados.complemento();
 
+    public EnderecoPaciente(@NotNull @Valid DadosEndereco enderecoPaciente) {
+        this.logradouro = enderecoPaciente.logradouro();
+        this.bairro = enderecoPaciente.bairro();
+        this.cep = enderecoPaciente.cep();
+        this.uf = enderecoPaciente.uf();
+        this.cidade = enderecoPaciente.cidade();
+        this.numero = enderecoPaciente.numero();
+        this.complemento = enderecoPaciente.complemento();
     }
 
-    public void atualizarInformacoesMedico(DadosEnderecoMedico dados)
+    public void atualizarInformacoesPaciente(DadosEndereco dados)
     {
         if(dados.logradouro() != null )
         {
@@ -58,4 +61,7 @@ public class EnderecoMedico {
             this.complemento = dados.complemento();
         }
     }
+
+
 }
+

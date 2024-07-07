@@ -23,7 +23,7 @@ public class PacienteController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastrarPacintes(@RequestBody @Valid DadosPacientes pacienteDados, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity cadastrarPacintes(@RequestBody @Valid DadosCadastroPacientes pacienteDados, UriComponentsBuilder uriBuilder) {
 
         var paciente = new Paciente(pacienteDados);
         repositoryP.save(paciente);

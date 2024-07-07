@@ -1,9 +1,10 @@
 package med.voll.api.domain.paciente;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.*;
 
-import med.voll.api.domain.endereco_Paciente.EnderecoPaciente;
+import med.voll.api.domain.enderecos.endereco_Paciente.EnderecoPaciente;
 
 
 @Table(name = "pacientes")
@@ -29,7 +30,7 @@ public class Paciente {
     private EnderecoPaciente enderecoPaciente;
 
 
-    public Paciente(DadosPacientes dadospaciente) {
+    public Paciente(@Valid DadosCadastroPacientes dadospaciente) {
         this.ativo = true;
         this.nome = dadospaciente.nome();
         this.email = dadospaciente.email();
@@ -37,6 +38,8 @@ public class Paciente {
         this.cpf = dadospaciente.cpf();
         this.enderecoPaciente = new EnderecoPaciente(dadospaciente.endereco());
     }
+
+
 
     public void atualizarInformacoes(DadosAtualizacaoPaciente dados) {
         if (dados.nome() != null)
@@ -48,6 +51,15 @@ public class Paciente {
             this.telefone = dados.telefone();
         }
     }
+
+    public Paciente(DadosPaciente dadospaciente){
+        this.nome = dadospaciente.nome();
+        this.email = dadospaciente.email();
+        this.cpf = dadospaciente.cpf();
+    }
+
+
+
     public void excluirPaciente() {
        this.ativo = false;
     }
