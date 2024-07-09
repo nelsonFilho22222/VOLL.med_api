@@ -55,7 +55,6 @@ class ConsultaControllerTest {
 
        assertThat(response.getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
    }
-    // Trecho de código suprimido
 
 
 
