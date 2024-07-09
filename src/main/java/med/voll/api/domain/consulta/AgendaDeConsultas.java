@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @Service
-public class    AgendaDeConsultas {
+public class AgendaDeConsultas {
 
     @Autowired
     private ConsultaRepository consultaRepository;
